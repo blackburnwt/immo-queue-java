@@ -1,0 +1,49 @@
+type Query{
+    getAllProperties: [Property]
+}
+
+type Mutation{
+    addNewProperty(input: CreateProperty): Property
+}
+
+type Property {
+    id: ID!
+    area: Float!
+    type: String!
+    bedrooms: Int!
+    address: AddressResponse!
+}
+input CreateProperty {
+    area: Float!
+    type: PropertyType!
+    bedrooms: Int!
+    address: Address!
+}
+
+input Address {
+    country: String!
+    state: String!
+    zipCode: String!
+    city: String!
+    street: String!
+    houseNumber: String!
+    floor: String
+    additionalInfo: String
+}
+
+type AddressResponse {
+    country: String
+    state: String
+    zipCode: String
+    city: String
+    street: String
+    houseNumber: String
+    floor: String
+    additionalInfo: String
+}
+    enum PropertyType{
+    ETAGENWOHNUNG
+    DACHGESCHOSS
+    HOCHPARTERRE
+    HAUS
+}
