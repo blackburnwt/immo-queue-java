@@ -1,19 +1,24 @@
 package com.search.immo_queue.property;
 
-import com.search.immo_queue.property.propertyOwner.PropertyOwner;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.UuidGenerator;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
-@Document(collection = "property_advert")
-@Builder
+@Entity(name = "property_advert")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class PropertyAdvert {
     @Id
+    @UuidGenerator
     private UUID id;
     private String description;
     private PropertyType type;

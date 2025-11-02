@@ -1,26 +1,33 @@
 package com.search.immo_queue.property;
 
 import com.search.immo_queue.property.propertyOwner.PropertyOwner;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.UuidGenerator;
 
 import java.math.BigDecimal;
 import java.util.UUID;
 
-@Document(collection = "property")
+@Entity(name = "property")
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Data
 public class Property {
     @Id
+    @UuidGenerator
     private UUID id;
     private BigDecimal area;
     private PropertyType type;
     private int bedrooms;
     private Address address;
+    @ManyToOne
     private PropertyOwner owner;
-    @Field("property_manager")
+    @ManyToOne
     private PropertyManager propertyManager;
 }

@@ -1,6 +1,8 @@
 package com.search.immo_queue.property;
 
-import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
+import org.springframework.data.repository.CrudRepository;
 
-public interface PropertyManagerRepository extends ReactiveMongoRepository<PropertyManager, String> {
+import java.util.UUID;
+
+public interface PropertyManagerRepository extends CrudRepository<PropertyManager, UUID> {
 }

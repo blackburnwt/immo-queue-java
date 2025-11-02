@@ -1,5 +1,7 @@
 type Query{
     getAllProperties: [Property]
+
+    getProperty(id: ID!): Property
 }
 
 type Mutation{
@@ -11,7 +13,7 @@ type Property {
     area: Float!
     type: String!
     bedrooms: Int!
-    address: AddressResponse!
+    address: AddressResponse
 }
 input CreateProperty {
     area: Float!
@@ -42,8 +44,8 @@ type AddressResponse {
     additionalInfo: String
 }
     enum PropertyType{
-    ETAGENWOHNUNG
-    DACHGESCHOSS
-    HOCHPARTERRE
-    HAUS
+    APARTMENT
+    PENTHOUSE
+    GROUND_FLOOR
+    HOUSE
 }

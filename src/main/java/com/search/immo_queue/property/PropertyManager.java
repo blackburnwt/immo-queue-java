@@ -1,25 +1,30 @@
 package com.search.immo_queue.property;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
+import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.UUID;
 
-@Document(collection = "property_manager")
-@Builder
+@Entity(name = "property_manager")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class PropertyManager {
     @Id
     private UUID id;
     private String name;
     private String surname;
-    @Field("company_name")
+    @Column(name = "company_name")
     private String companyName;
     private String phone;
     private String email;
-    @Field("company_address")
+    @Embedded
     private Address companyAddress;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Property> property;
 }
