@@ -1,6 +1,6 @@
-package com.search.immo_queue.property.propertyOwner;
+package com.search.immo_queue.domain.owner;
 
-import com.search.immo_queue.property.Address;
+import com.search.immo_queue.domain.Address;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;

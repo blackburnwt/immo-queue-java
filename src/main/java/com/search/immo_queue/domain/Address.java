@@ -1,4 +1,4 @@
-package com.search.immo_queue.property;
+package com.search.immo_queue.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;

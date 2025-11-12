@@ -1,4 +1,4 @@
-package com.search.immo_queue.property.propertyOwner;
+package com.search.immo_queue.domain.owner;
 
 import lombok.Getter;
 import lombok.Setter;

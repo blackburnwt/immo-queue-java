@@ -1,7 +1,8 @@
-package com.search.immo_queue.property;
+package com.search.immo_queue.domain.property;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,17 +12,18 @@ import org.hibernate.annotations.UuidGenerator;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-@Entity(name = "property_advert")
+@Entity(name = "ad")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class PropertyAdvert {
+public class Ad {
     @Id
     @UuidGenerator
     private UUID id;
     private String description;
-    private PropertyType type;
     private BigDecimal price;
+    @ManyToOne
+    private PropertyManager property;
 
 }

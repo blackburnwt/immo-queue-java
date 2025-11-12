@@ -1,4 +1,4 @@
-package com.search.immo_queue.property;
+package com.search.immo_queue.domain.property;
 
 public enum PropertyType {
     APARTMENT("Etagenwohnung","apartment"),
