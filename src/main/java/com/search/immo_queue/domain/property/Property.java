@@ -9,7 +9,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.UuidGenerator;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
@@ -22,9 +21,6 @@ public class Property {
     @Id
     @UuidGenerator
     private UUID id;
-    private BigDecimal area;
-    private PropertyType type;
-    private int bedrooms;
     private Address address;
 
     @ManyToOne
@@ -32,4 +28,6 @@ public class Property {
     private Owner owner;
     @OneToMany(mappedBy = "property_id")
     private List<PropertyManager> propertyManager;
+    @Embedded
+    private PropertyCharacteristics propertyCharacteristics;
 }
